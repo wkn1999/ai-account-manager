@@ -1,0 +1,64 @@
+{
+  "name": "ai-account-manager",
+  "productName": "AI账号管家",
+  "version": "0.3.3",
+  "description": "多平台 AI 账号管理工具：Trae / Qoder / CodeBuddy / WorkBuddy / DuMate / ChatGPT(Codex CLI)，支持多账号批量管理、一键切号、额度看板与一键签到；Qoder CN 签到、会话归档与导出导入、Trae 智能体导出导入与一键全部归档、桌面快捷方式、简洁界面、智能体单个复制提示词",
+  "author": "local",
+  "license": "MIT",
+  "main": "src/main/index.js",
+  "scripts": {
+    "build:renderer": "vite build",
+    "start": "vite build && electron .",
+    "dev": "vite build && electron .",
+    "shot": "vite build",
+    "dist": "vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "sql.js": "^1.10.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.11"
+  },
+  "build": {
+    "appId": "local.ai.account.manager",
+    "productName": "AI账号管家",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/main/**/*",
+      "dist/**/*",
+      "!**/*.map",
+      "!node_modules/**/*.md",
+      "!node_modules/sql.js/dist/sql-asm*",
+      "!node_modules/sql.js/dist/worker.*",
+      "!node_modules/sql.js/dist/sql-wasm-browser*",
+      "!node_modules/sql.js/dist/sql-wasm-inline*",
+      "!node_modules/sql.js/dist/*-debug*",
+      "!node_modules/sql.js/dist/*.zip"
+    ],
+    "asarUnpack": [
+      "node_modules/sql.js/dist/sql-wasm.wasm"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "artifactName": "AI-Account-Manager-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "AI-Account-Manager-Portable-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "AI账号管家"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+release*/
+*.log
+*.bak
+.DS_Store
+Thumbs.db
+
+# 本地逆向/探测脚本，含私有接口细节，不入库
+scripts/probe*.js
+scripts/qoder-checkin-probe.js
+scripts/vault-probe.js
+
+# 内部工作日志与本机交付物（含真实账号标识 / uid / 自定义提示词），不入库
+.workbuddy/
+preview-*.png
+Trae智能体-可粘贴清单.md
